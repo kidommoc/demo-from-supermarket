@@ -1,0 +1,8 @@
+{
+  "name": "from supermarket",
+  "description": "A curated AI shopping assistant that helps you discover local gems and manage rewards through spatial intelligence.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
