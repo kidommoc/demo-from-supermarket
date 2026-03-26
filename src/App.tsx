@@ -11,8 +11,7 @@ import {
   Camera, 
   Keyboard, 
   PlusCircle, 
-  RefreshCw,
-  MilitaryTech
+  RefreshCw
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Message, DiscoveryCard } from './types';
@@ -292,24 +291,30 @@ export default function App() {
             </motion.button>
           )}
           
-          <div className="bg-white dark:bg-slate-800 rounded-full shadow-pill border border-amber-100/50 dark:border-slate-700 flex items-center px-4 py-2 gap-3 h-16">
-            <button className="p-2 text-stone-600 dark:text-stone-400 active:scale-90 transition-transform">
-              <Camera size={28} />
-            </button>
-            <div className="flex-1 flex justify-center">
-              <span className="text-stone-800 dark:text-stone-200 font-bold text-[16px] tracking-wide">
-                按住说话
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
+          {step > 0 && (
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-white dark:bg-slate-800 rounded-full shadow-pill border border-amber-100/50 dark:border-slate-700 flex items-center px-4 py-2 gap-3 h-16"
+            >
               <button className="p-2 text-stone-600 dark:text-stone-400 active:scale-90 transition-transform">
-                <Keyboard size={28} />
+                <Camera size={28} />
               </button>
-              <button className="p-2 text-lumen-amber active:scale-90 transition-transform">
-                <PlusCircle size={32} fill="currentColor" className="text-primary" />
-              </button>
-            </div>
-          </div>
+              <div className="flex-1 flex justify-center">
+                <span className="text-stone-800 dark:text-stone-200 font-bold text-[16px] tracking-wide">
+                  按住说话
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <button className="p-2 text-stone-600 dark:text-stone-400 active:scale-90 transition-transform">
+                  <Keyboard size={28} />
+                </button>
+                <button className="p-2 text-lumen-amber active:scale-90 transition-transform">
+                  <PlusCircle size={32} fill="currentColor" className="text-primary" />
+                </button>
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
     </div>
